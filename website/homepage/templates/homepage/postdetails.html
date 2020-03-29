@@ -1,0 +1,11 @@
+{% extends 'baselayout.html' %}
+{% block content %}
+<div class="postdetail">
+    <div class="post">
+        <h2>{{post.title}}</h2>
+        <p>{{post.date}}</p>
+        <p>{{post.body}}</p>
+        <p>{{post.writer}}</p>
+    </div>
+</div>
+{% endblock %}

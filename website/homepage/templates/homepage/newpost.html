@@ -1,0 +1,12 @@
+{% extends 'baselayout.html' %}
+
+{% block content %}
+ <div class="newpost">
+     <h1><center>Write A New Post</center></h1>
+     <form class="site-form" action="{% url 'newpost' %}" method="post">
+         {% csrf_token %}
+         {{ form }}
+         <input type="submit" value="Submit">
+     </form>
+ </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'baselayout.html' %}
+
+{% block content %}
+    <h1><center>List of Posts</center></h1><br/><br/>
+    <div class="posts">
+        {% for post in posts %}
+         <div class="post">
+             <h2><a href="{% url 'detail' slug=post.slug%}">{{post.title}}</a></h2>
+             {% if request.user == post.writer %}
+               <p><a href="{% url 'editpost' slug=post.slug %}">Edit Post</a></p>
+             {% endif %}
+             <p>{{ post.snip }}</p>
+             <p>{{ post.date }}</p>
+         </div>
+        {% endfor %}
+    </div>
+{% endblock %}

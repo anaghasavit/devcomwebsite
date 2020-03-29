@@ -1,0 +1,10 @@
+{% extends 'baselayout.html' %}
+
+{% block content %}
+  <h1><center>Sign In Form</center></h1>
+  <form action="/users/signin/" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Signup">
+  </form>
+{% endblock %}

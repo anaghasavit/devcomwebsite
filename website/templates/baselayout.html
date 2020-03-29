@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header class="wrapper">
+        <nav>
+            <ul>
+                    <form class="loginlink" action="{% url 'users:login' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Login</button>
+                    </form>
+                    <form class="logoutlink" action="{% url 'users:logout' %}" method = "post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                    <form class="signinlink" action="{% url 'users:signin' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">SignUp</button>
+                    </form>
+                    <form class="writepostlink" action="{% url 'newpost' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">New Post</button>
+                    </form>
+                    <form class="gohomelink" action="{% url 'homepage' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Homepage</button>
+                    </form>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

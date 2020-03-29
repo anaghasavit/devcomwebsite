@@ -1,0 +1,12 @@
+{% extends 'baselayout.html' %}
+
+{% block content %}
+<h1>Edit Post {{ article.title }}</h1>
+<div class="profile">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}
